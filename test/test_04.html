@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<style>
+		.pic1{
+			transform: scale(1);
+			transform: all .5s;
+		}
+		.big1{
+			transform: scale(1.5);
+		}
+	</style>
+</head>
+<body>
+	<h1>渐变动画</h1>
+	<img class="pic1" src="../img/course/01.jpg">
+	<img class="pic1" src="../img/course/02.jpg">
+	<img class="pic1" src="../img/course/03.jpg">
+	<img class="pic1" src="../img/course/04.jpg">
+	<script>
+		let list= document.querySelectorAll('.pic1')
+			for(let i=0; i<list.length; i++){
+			    let pic = list[i]
+				pic.onmouseenter = () =>{
+					pic.classList.add('big1')
+				}
+				pic.onmouseleave = () =>{
+					pic.classList.remove('big1')
+					}
+		}
+	</script>
+</body>
+</html>

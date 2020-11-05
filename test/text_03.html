@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<link rel="stylesheet" href="../css/font-awesome.css">
+	<style>
+		.fa{
+			/* 变形:缩放/平移/扭曲/旋转 */
+			/* transform: rotateZ(90deg); */
+			transform: scale(1.8);
+			/* 缩放 大于1 变大 小于1 变小 */
+		}
+		.box{
+			width: 20px;
+			height: 20px;
+			background: #3f3;
+			/* css3提供的渐变动画 */
+			transition: all .2s;
+			
+			/* transition只能指用一次 指用多个all */
+			/* 渐变动画目标class */
+		}
+		.big{
+			width: 200px;
+			height: 200px;
+			background: #a3a;
+		}
+		.state1{ /* 基础class */
+			transform: rotateZ(0);
+			transition: all  .5s;
+		}
+		.state2{
+			transform: rotateZ(180deg);
+		}
+	</style>
+</head>
+<body>
+	<h1>css3中的变形</h1>
+	<span class="fa fa-caret-down fa-3x"></span>
+	
+	<h1>css3中的动画</h1>
+	<div class="box" id="b2"></div>
+	<!-- id 不能以数字开头 -->
+	
+	<h1>css3中的变形+动画</h1>
+	<span class="fa fa-heart fa-3x state1" id="h3"></span>
+	<script type="text/javascript">
+		// div元素开始点击时开始进行动画
+		// b2.onclick = function()
+		b2.onclick = () => {
+			console.log('div被点击了')
+			// JS通过控制class的有无来操作元素的样式
+			// b2.classList.add('big')
+			if(b2.classList.contains('big')){
+				b2.classList.remove('big')
+				// 删除class
+			}
+			else {
+				b2.classList.add('big')
+				// 添加class
+			}
+		}
+		
+		// span鼠标悬停时添加目标class：.state2
+		h3.onmouseenter = () => {
+			h3.classList.add('state2')
+			}
+			// span鼠标离开时删除目标class: .state2
+			h3.onmouseleave = () =>{
+				h3.classList.remove('state2')
+			}
+	</script>
+</body>
+</html>
