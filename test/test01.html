@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<style>
+		div {
+			/* box-sizing: content-box; 内容盒子*/
+			box-sizing: border-box;  /*边框盒子*/
+		}
+		.parent {
+			width: 600px;
+			height: 500px;
+			background: #ff0;
+		}
+		.left {
+			width: 200px;
+			height: 100px;
+			background: #f00;
+			/* 浮动：让当前元素脱离文档流飘起来——不再占用布局空间 */
+			float: left;
+			/* float: right; */
+			/* margin-left: 1px; */
+			border-left: 10px solid #000;
+			padding-left: 10px;
+		}
+		.right {
+			width: 400px;
+			height: 200px;
+			background: #0f0;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<h1>盒子模型-尺寸的计算方案</h1>
+	<div class="parent">
+		<div class="left">左侧的菜单</div>
+		<div class="right">右侧的详情</div>
+	</div>
+</body>
+</html>

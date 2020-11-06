@@ -6,43 +6,37 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title></title>
 	<style>
-		.pic1 {			/*基础样式*/
-			/* width: 200px; */
-			transform: scale(1);		/*变形：缩放*/
-			transition: all  .5s;
+		.box1{
+			position: static;
+			top: 0;
+			left: 0;
 		}
-		/*.pic1:hover {
-			width: 300px;
-		}*/
-		.big1 {			/*目标样式*/
-			/* width: 300px; */
-			transform: scale(1.5);		/*变形：变为默认大小的1.5倍*/
+		.box2{
+			position: celative;
+			top: 0;
+			left: 0;
 		}
+		.box3{
+			position: absolute;
+			top: 0;
+			left: 200px;
+		}
+		.box33{
+			position: absolute;
+			top: 200px;
+			  .box333{
+				  position: absolute;
+				  left: 150px;
+			  }	
+				  .box4{
+					  position: fixed;
+					  top: 20px;
+					  
+				  }}
 	</style>
+	
 </head>
 <body>
-	<h1>渐变动画</h1>
-	<img class="pic1" src="../img/course/01.jpg">
-	<img class="pic1" src="../img/course/02.jpg">
-	<img class="pic1" src="../img/course/03.jpg">
-	<img class="pic1" src="../img/course/04.jpg">
 	
-	<script>
-		// 鼠标悬停在某个.pic1图片上时，添加目标class：big1
-		// 查找所有的.pic1元素——通过一个CSS选择器选择满足该选择器的所有元素
-		let list = document.querySelectorAll('.pic1')
-		//console.log(list)  //list就是上述方法返回的数组
-		for(let i=0; i<list.length; i++){
-			let pic = list[i]	//从数组中取出第i个图片
-			//鼠标进入该图片，则添加.big1
-			pic.onmouseenter = ()=>{
-				pic.classList.add('big1')
-			}
-			//鼠标离开该图片，则删除.big1
-			pic.onmouseleave = ()=>{
-				pic.classList.remove('big1')
-			}
-		}
-	</script>
 </body>
 </html>
