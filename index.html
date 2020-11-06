@@ -6,158 +6,169 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="icon" href="img/favicon.ico">
 	<title>iweb在线课堂</title>
-	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet"  href="css/base.css"/>
 	<link rel="stylesheet" href="css/font-awesome.css">
 	<style>
 		.topbar{
+			width: 100%;
 			height: 29px;
 			line-height: 29px;
-			background: #f9f9f9;
+			background: #F9F9F9;
 			border-bottom: 1px solid #eee;
-			text-align: center;
+			text-align: right;
 		}
 		.container{
 			width: 1000px;
 			margin-left: auto;
 			margin-right: auto;
-			border: 1px solid #aaa;
+			/* border:1px solid #aaa; */
 		}
-		.topbar > .container > a,
-		.topbar > .container > span{
-			padding-left: 1em;
+		.topbar>.container>a,
+		.topbar>.container>span{
+			padding-left:1em ;
 		}
-		/* 复杂选择器 > 选择孩子 , 逗号表示并列选多个 */
+		.theme{/*主题色*/
+			
+		}
+		.theme-reverse{/*主题色反色*/
+			color: #f60;
+		}
 		
-		.theme{
-			/* 主题色 */
-		}
-		.theme-reverse{
-			color: #00FF00;
-		}
-		/* 主题色的反色 */
 		.searchbar{
-			width: 100%;
 			background: #fff;
+			 
 		}
-		
-		.searchbar > .container{
-			padding-top: 2em;
+		.searchbar>.container{
+			padding-top:2em ;
 			padding-bottom: 2em;
 		}
-		.search{
+		
+		.search{/*搜索条右浮动*/
 			float: right;
-			margin-top: 9px;
-			/* 搜索右浮动 */
+			padding-top:8px;
 		}
-		.search > input{
+		.search>input{
 			width: 430px;
 			height: 32px;
 			border: 1px solid #ccc;
-			/* 输入框获得焦点时的外围轮廓线 */
-			outline: none;
-			padding-right: .8em;
+			outline:none;
 			padding-left: .8em;
-			/* 0.8  css中约定为.8 */
-			vertical-position: middle;
-			/* 行内块元素与同一行中内容竖直对齐 可选值:top /middle /bottom  */
+			padding-right: .8em;
 		}
-		.search > .fa-search{
+		.search>.fa-search{
 			background: #57bc4c;
 			color: #fff;
-			font-size: 1.4em;
 			width: 50px;
 			height: 32px;
-			display: inline;
+			font-size: 2.2em;
 			line-height: 32px;
-			/* 文字竖直方向向上居中 */
 			text-align: center;
-			/* 文字水平方向向上居中 */
-			vertical-align: middle;
 		}
-	
 		
-		.cart{
+		.cart-container{
+			position: relative;
 			float: right;
-			background: #F9F9F9;
-			border: 1px solid #ddd;
-			line-height: 30px;
-			margin-top: 6px;
+		}
+		.cart{
+			background: #f9f9f9;
+		    border:1px solid #ddd;
+			line-height: 31px;/*行高*/
+			margin-top: 8px;
 			margin-left: 20px;
-			/* 修改光标样式 */
+			/* 修改光标的样式 */
 			cursor: pointer;
+			/* 只有定位的元素才能使用z-index*/
+			position: relative;
+			z-index: 1;
+			border-bottom: none;
+		
 		}
-		.cart > .fa {
-			padding-left: 0.6em;
-			padding-right: 0.6em;
+		.cart>.fa{
+			padding-left: .6em;
+			padding-right: .6em;
 			color: #57BC4C;
-			}
-		.cart > .caret {
-			padding-left: 0.6em;
-			padding-right: 0.6em;
-			color: #57BC4C;
+		}
+		.cart>.caret{
+			
 			transform: rotate(0);
-			transition: all  .3s;
+			transition: all .5s;
 		}
-		.cart > .caret-rotate {
+		.cart>.caret-rotate{
 			transform: rotate(180deg);
 		}
+		.cart-container>.dropdown{
+			position: absolute;/*绝对定位的元素可以处于其他元素上方*/
+			right: 0;
+			top: 39px;
+			border: 1px solid #ddd;
+			padding: 2em 3em;/*上右*/
+			width: 262px;
+			background: #fff;
+				
+		}
+		
 	</style>
 </head>
 <body>
+      <!-- 顶部条 -->
 	<div class="topbar">
+		
 		<div class="container">
-		<a href="#">
-			<span class="fa fa-star"></span>
-			收藏前端
-		</a>
-		<a href="#">
-		<span class="fa fa-mobile fa-2x"></span>
-		<span class="theme-reverse">下载手机客户端</span>
-		</a>
-		<span>
-			<span class="fa fa-envelope">
-				反馈邮箱:iweb@tedu.cn
-		</span>
-		</span>
-		<span>
-			<span class="fa fa-mobile-phone"></span>
-			客服热线:1008611
-		</span>
+			<a href="#">
+				<span class="fa fa-star"></span>
+				收藏i前端
+			</a>
+			<a href="#">
+				<span class="fa fa-mobile-phone fa-lg"></span>
+				<span class="theme-reverse">下载手机客户端</span>
+			</a>
+			<span>
+				<span class="fa fa-envelope"></span>
+				反馈邮箱：iweb@tedu.cn
+			</span>
+			<span>
+				<span class="fa fa-phone fa-lg "></span>
+				客服电话：4008-200-200
+			</span>
 		</div>
 	</div>
-	
-	
+
+      <!-- 1搜索条 -->
 	<div class="searchbar">
 		<div class="container">
-		    <img src="img/logo.png" alt="iweb LOGO">
-			<!-- <input type="text">
-			<input type="password">
-			<input type="radio">
-			<!-- 单选 -->
-			<!-- <input type="checkbox">
-			<!-- 多选 -->
-			<!-- <input type="button" value="11"> -->
-			<div class="cart" id="myCart">
+			<img src="img/logo.png" alt="iWeb LOGO">
+			
+			<!-- 3我的购物车 -->
+			<div class="cart-container">
+				<!-- 购物车 -->
+				<div class="cart" id="myCart">
 				<span class="fa fa-shopping-cart fa-lg"></span>
 				<span>我的购物车(<b>0</b>)</span>
 				<span class="fa fa-caret-down caret " id="caret"></span>
+				</div>
+				<!-- 下拉菜单 -->
+				<div class="dropdown">
+					请登录后查看您的购物车
+				</div>
+			
 			</div>
+			
+			<!-- 2输入框 -->
 			<div class="search">
-				<input type="text" placeholder="课程搜索">
-				<span class="fa fa-search fa-lg"></span>
+			<input type="text" placeholder="课程搜索" >
+			<span class="fa fa-search fa-lg"></span>
 			</div>
-			<!-- 我的购物车 -->  
-			</div>
+		</div>
 	</div>
-	
-	<script>
-		// 鼠标进入"我的购物车" 则后面的小三角开始旋转,离开则转回来
-		myCart.onmouseenter = () =>{
+
+    <script>
+		//鼠标进入“我的购物车”，则小三角旋转
+		myCart.onmouseenter = ()=>{
 			caret.classList.add('caret-rotate')
 		}
 		myCart.onmouseleave = () =>{
-			caret.classList.remove('caret-rotate')
+		    caret.classList.remove('caret-rotate')
 		}
-	</script>  
+	</script> 
 </body>
 </html>
