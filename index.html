@@ -72,7 +72,7 @@
 		.cart{
 			background: #f9f9f9;
 		    border:1px solid #ddd;
-			line-height: 31px;/*行高*/
+			line-height: 30px;/*行高*/
 			margin-top: 8px;
 			margin-left: 20px;
 			/* 修改光标的样式 */
@@ -80,8 +80,11 @@
 			/* 只有定位的元素才能使用z-index*/
 			position: relative;
 			z-index: 1;
+		}
+		.cart.open{
+			line-height: 31px;
+			background: #fff;
 			border-bottom: none;
-		
 		}
 		.cart>.fa{
 			padding-left: .6em;
@@ -91,7 +94,7 @@
 		.cart>.caret{
 			
 			transform: rotate(0);
-			transition: all .5s;
+			transition: all .3s;
 		}
 		.cart>.caret-rotate{
 			transform: rotate(180deg);
@@ -104,13 +107,38 @@
 			padding: 2em 3em;/*上右*/
 			width: 262px;
 			background: #fff;
-				
+			display: none;			
 		}
-		
+		.cart-container>.dropdown.open{
+			display: block;
+		}
+		.navbar{
+			background: #57BC4C;
+			width: 100%;
+			height: 42px;
+			border-bottom: 2px solid #cleebd;
+			line-height: 40px;
+			color: #fff;
+			font-size: 1.2em;
+		}
+		.navbar  .menu{
+			margin: 0;
+			padding: 0;
+		}
+		.navbar  .menu li{
+			float: left;
+			padding: 0  1.5em;
+		}
+		.navbar .menu li:hover{
+			background: #4AAF3F;
+		}
+		.navbar .menu li a{/*复杂选择器具有更高优先级
+			color: #fff;
+		}
 	</style>
 </head>
 <body>
-      <!-- 顶部条 -->
+      <!-- 1楼 顶部条 -->
 	<div class="topbar">
 		
 		<div class="container">
@@ -133,21 +161,21 @@
 		</div>
 	</div>
 
-      <!-- 1搜索条 -->
+      <!-- 2楼 搜索条 -->
 	<div class="searchbar">
 		<div class="container">
 			<img src="img/logo.png" alt="iWeb LOGO">
 			
 			<!-- 3我的购物车 -->
-			<div class="cart-container">
+			<div class="cart-container"	id="myCart">
 				<!-- 购物车 -->
-				<div class="cart" id="myCart">
+				<div class="cart" id="cart">
 				<span class="fa fa-shopping-cart fa-lg"></span>
 				<span>我的购物车(<b>0</b>)</span>
 				<span class="fa fa-caret-down caret " id="caret"></span>
 				</div>
 				<!-- 下拉菜单 -->
-				<div class="dropdown">
+				<div class="dropdown" id="dropdown">
 					请登录后查看您的购物车
 				</div>
 			
@@ -160,14 +188,34 @@
 			</div>
 		</div>
 	</div>
-
+      <!-- 3楼 导航条 -->
+	  <div class="navbar">
+		  <div class="container">
+		  <!-- 左侧的功能列表 -->
+		  <ul class="menu">
+			  <li><a href="index.html">首页</a></li>
+			  <li><a href="course.html">全部课程</a></li>
+			  <li><a href="course.html?tid=1">基础课程</a></li>
+			  <li><a href="course.html?tid=2">核心课程</a></li>
+			  <li><a href="course.html?tid=3">进阶课程</a></li>
+			  <li><a href="teacher.html">名师堂</a></li>
+			  <li><a href="school.html">校区  </a></li>
+		  </ul>
+		  <!-- 右侧的的登陆/注册菜单 -->
+		  </div>
+	  </div>
+	  
     <script>
 		//鼠标进入“我的购物车”，则小三角旋转
-		myCart.onmouseenter = ()=>{
+		myCart.onmouseenter = () =>{
 			caret.classList.add('caret-rotate')
+			cart.classList.add('open')
+			dropdown.classList.add('open')
 		}
 		myCart.onmouseleave = () =>{
 		    caret.classList.remove('caret-rotate')
+			cart.classList.remove('open')
+			dropdown.classList.remove('open')
 		}
 	</script> 
 </body>
